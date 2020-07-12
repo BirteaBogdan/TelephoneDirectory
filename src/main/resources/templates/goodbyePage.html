@@ -1,0 +1,58 @@
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<head th:replace="fragment/pageheader :: head">
+
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+	<link rel="stylesheet" type="text/css" href="goodbyeStyle.css">
+</head>
+
+<body class="bg">
+	
+	<div class="navibar1">
+		<b>Phone Directory</b>
+	</div><div class="navibar2">
+		<b>Add Contact / Edit Contact</b>
+	</div>
+
+	<div class="container">
+		<div class="col">
+			<div class="row">
+				<div class="col-md-6">
+					<label for="firstName"><b>First Name</b> :</label>
+					<input type="text" class="form-control" id="firstName" placeholder="ex. Ion" value="" required="">
+				
+					<label for="lastName"><b>Last Name</b> :</label>
+					<input type="text" class="form-control" id="lastName" placeholder="ex. Popescu" value="" required="">
+				</div>
+				<div class="col-md-6">
+					
+					<button type="button" class="btn btn-light">Add picture</button>
+					<img src="addPicture3.png" alt="contact picture" width="230" height="230">
+				</div>
+			</div>
+			<div>
+				<div>
+					<label for="number"><b>Number</b> :</label>
+					<input type="text" class="form-control" id="number" placeholder="ex. 0765432109" value="" required="">
+				</div>
+			
+			</div>
+			<div>
+				<label for="adress"><b>Adress</b> :</label>
+				<input type="text" class="form-control" id="adress" placeholder="ex. Bv. Brasov" value="" required="">
+			</div>
+			<div>
+				<label for="email"><b>E-mail</b> :</label>
+				<input type="text" class="form-control" id="email" placeholder="ex. email@email.email" value="" required="">
+			</div>
+			
+		</div>
+		<div>
+			<button class="button" style="vertical-align:middle" width="400"; ><span>Create contact  </span></button>
+		</div>
+	</div>
+</body>
+
+<div th:replace="fragment/pagefooter :: pagefooter"></div>
+
+</html>
