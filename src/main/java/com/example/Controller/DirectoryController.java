@@ -1,4 +1,4 @@
-package com.example.Controller;
+package com.example.Controller;// FIXME All packages should be written with lower case
 
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
