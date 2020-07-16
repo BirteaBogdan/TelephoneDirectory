@@ -23,7 +23,7 @@ public class DirectoryServiceImpl implements DirectoryService {
 	}
 
 	@Override
-	public int saveNumbers(Directory numbers) {
+	public int saveNumbers(Directory number) {
 		System.out.println("Hello from saveNumbers");
 		int x = 5;
 		return x;

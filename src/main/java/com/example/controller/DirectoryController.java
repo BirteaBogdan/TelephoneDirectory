@@ -35,23 +35,26 @@ public class DirectoryController {
 
 	}
 
-	@RequestMapping(value = "/goodbye", method = RequestMethod.GET)
-	public ModelAndView goodbyeRequestMapping(Model model) {
+	@RequestMapping(value = "/addContact", method = RequestMethod.GET)
+	public ModelAndView addContactRequestMapping(Model model) {
 		ModelAndView mav = new ModelAndView();
-		System.out.println("Good bye from goodbyeRequestMapping");
+		System.out.println("Hello from addContactRequestMapping");
 		Directory contact = new Directory();
 		model.addAttribute("contact", contact);
-		mav.setViewName("goodbyePage");
+		mav.setViewName("addContact");
 		return mav;
 	}
+
 	
 	
 	@RequestMapping(value="/submitContact", method=RequestMethod.POST)
-	public ModelAndView submitContact(@ModelAttribute Directory contact) {
+	public ModelAndView submitContact(@ModelAttribute("contact") Directory contact) {
 		ModelAndView mav = new ModelAndView();
 		System.out.println("Hello from submitContact");
 		int result = phonebookService.saveNumbers(contact);
 		System.out.println("Result: " + result);
+		System.out.println(contact);
+		
 		mav.setViewName("redirect:/PhonebookOverview");
 		return mav;
 	}
