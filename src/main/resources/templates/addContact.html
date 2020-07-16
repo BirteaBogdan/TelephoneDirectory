@@ -11,43 +11,43 @@
 	</div><div class="navibar2">
 		<b>Add Contact / Edit Contact</b>
 	</div>
-	<form action="" th:action="@{/submitContact}" th:object=${contact} method="post">
+	<form action="" th:action="@{/submitContact}" th:object=${contact} method="post" modelAttribute="contact">
 
 	<div class="container">
 		<div class="col">
 			<div class="row">
 				<div class="col-md-6">
 					<label for="firstName"><b>First Name</b> :</label>
-					<input type="text" class="form-control" id="firstName" placeholder="ex. Ion" value="" required="">
+					<input type="text" class="form-control" id="firstName" placeholder="ex. Ion" th:field="*{firstName}">
 				
 					<label for="lastName"><b>Last Name</b> :</label>
-					<input type="text" class="form-control" id="lastName" placeholder="ex. Popescu" value="" required="">
+					<input type="text" class="form-control" id="lastName" placeholder="ex. Popescu" th:field="*{lastName}">
 				</div>
 				<div class="col-md-6">
 					
 					<button type="button" class="btn btn-light">Add picture</button>
-					<img src="..\..\webapp\static\custom\img\addPicture3.PNG" alt="contact picture" width="230" height="230">
+					<img src="../../webapp/static/custom/img/addPicture3.PNG" id="contactimg" alt="contact picture">
 				</div>
 			</div>
 			<div>
 				<div>
 					<label for="number"><b>Number</b> :</label>
-					<input type="text" class="form-control" id="number" placeholder="ex. 0765432109" value="" required="">
+					<input type="text" class="form-control" id="number" placeholder="ex. 0765432109" th:fiel="*{phoneNumber}">
 				</div>
 			
 			</div>
 			<div>
 				<label for="adress"><b>Adress</b> :</label>
-				<input type="text" class="form-control" id="adress" placeholder="ex. Bv. Brasov" value="" required="">
+				<input type="text" class="form-control" id="adress" placeholder="ex. Bv. Brasov" th:filed="*{adress}">
 			</div>
 			<div>
 				<label for="email"><b>E-mail</b> :</label>
-				<input type="text" class="form-control" id="email" placeholder="ex. email@email.email" value="" required="">
+				<input type="text" class="form-control" id="email" placeholder="ex. email@email.email" th:field="*{email}">
 			</div>
 			
 		</div>
 		<div>
-			<button class="button" style="vertical-align:middle" width="400"; ><span>Create contact  </span></button>
+			<button class="button"><span>Create contact  </span></button>
 		</div>
 	</div>
 	</form>
