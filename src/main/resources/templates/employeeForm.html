@@ -1,0 +1,32 @@
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head th:replace="fragment/pageheader :: head">
+
+<body>
+	<h1>Create a new employee</h1>
+	
+	<form action="" th:action="@{/submitEmployee}" th:object=${employee}>
+		<div class="">
+			<label>Employee ID</label>
+			<input class="form-control" th:field="${employee.id}">
+		</div>
+		<div class="">
+			<label>Last Name</label>
+			<input class="form-control" th:field="*{firstName}">
+		</div>
+		<div class="">
+			<label>First Name</label>
+			<input class="form-control" th:field="*{lastName}">
+		</div>
+		<div class="">
+			<label>Monthly Salary</label>
+			<input class="form-control" th:field="*{monthlySalary}">
+		</div>
+		<div>
+			<button type="submit">Submit</button>
+		</div>
+	</form>
+</body>
+
+<div th:replace="fragment/pagefooter :: pagefooter"></div>
+
+</html>
