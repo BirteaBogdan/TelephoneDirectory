@@ -25,13 +25,9 @@ public class DirectoryController {
 		ModelAndView mav = new ModelAndView();
 		System.out.println("Hello from phonebookOverviewRequestMapping");
 
-		List<Directory> numbers = new ArrayList<Directory>();
-		numbers.add(new Directory(1, "Andrei", "Popescu", "0711111111", "Str.Cocorului, Nr.23","popescu.andrei@yahoo.com"));
-		numbers.add(new Directory(2, "Andreea", "Georgescu", "0755555555", "Str.Dorului, Nr.33","georgescu.andreea@yahoo.com"));
-		numbers.add(new Directory(3, "Ion", "Ionescu", "0722222222", "Str.Norului, Nr.12", "ionescu.ion@yahoo.com"));
-		numbers.add(new Directory(4, "Cristian", "Ionescu", "0733333333", "Str.Lunga, Nr.6", "ionescu.cristian@yahoo.com"));
-
-		model.addAttribute("numberList", numbers);
+		List<Directory> contacts = phonebookService.getNumbers();
+		
+		model.addAttribute("numberList", contacts);
 		phonebookService.getNumbers();
 
 		mav.setViewName("PhonebookOverview");
