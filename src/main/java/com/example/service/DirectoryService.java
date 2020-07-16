@@ -1,10 +1,13 @@
 package com.example.service;
+
 import java.util.List;
 
-import com.example.model.Employee;
+import com.example.model.Directory;
 
-public class EmployeeService {
+public interface DirectoryService {
 	
-	public List<Employee> getEmployee();
-	public int saveEmployee(Employee employee);
+	public List<Directory> getNumbers();
+
+	public int saveNumbers(Directory number);
+
 }
