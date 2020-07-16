@@ -1,6 +1,5 @@
 package com.example.controller;
 
-
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -18,19 +17,18 @@ import com.example.service.DirectoryService;
 public class DirectoryController {
 
 	@Autowired
-	public DirectoryService phonebookService;
+	public DirectoryService directoryService;
 
-	@RequestMapping(value = "/PhonebookOverview", method = RequestMethod.GET)
+	@RequestMapping(value = "/phonebookOverview", method = RequestMethod.GET)
 	public ModelAndView phonebookOverviewRequestMapping(Model model) {
 		ModelAndView mav = new ModelAndView();
-		System.out.println("Hello from phonebookOverviewRequestMapping");
 
-		List<Directory> contacts = phonebookService.getNumbers();
+		List<Directory> contactList = directoryService.getContactList();
 		
-		model.addAttribute("numberList", contacts);
-		phonebookService.getNumbers();
-
-		mav.setViewName("PhonebookOverview");
+		model.addAttribute("contactList", contactList);
+		directoryService.getContactList();
+		
+		mav.setViewName("phonebookOverview");
 		return mav;
 
 	}
@@ -38,7 +36,7 @@ public class DirectoryController {
 	@RequestMapping(value = "/addContact", method = RequestMethod.GET)
 	public ModelAndView addContactRequestMapping(Model model) {
 		ModelAndView mav = new ModelAndView();
-		System.out.println("Hello from addContactRequestMapping");
+		
 		Directory contact = new Directory();
 		model.addAttribute("contact", contact);
 		mav.setViewName("addContact");
@@ -50,12 +48,11 @@ public class DirectoryController {
 	@RequestMapping(value="/submitContact", method=RequestMethod.POST)
 	public ModelAndView submitContact(@ModelAttribute("contact") Directory contact) {
 		ModelAndView mav = new ModelAndView();
-		System.out.println("Hello from submitContact");
-		int result = phonebookService.saveNumbers(contact);
+		int result = directoryService.saveContact(contact);
 		System.out.println("Result: " + result);
 		System.out.println(contact);
 		
-		mav.setViewName("redirect:/PhonebookOverview");
+		mav.setViewName("redirect:/phonebookOverview");
 		return mav;
 	}
 }

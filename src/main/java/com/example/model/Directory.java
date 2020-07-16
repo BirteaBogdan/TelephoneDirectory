@@ -1,12 +1,36 @@
 package com.example.model;
 
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.Table;
+
+
+@Entity
+@Table(name = "t_contacts")
+	
 public class Directory {
 
+	@Id
+	@GeneratedValue(strategy=GenerationType.IDENTITY)
+	@Column(name = "ID")
 	private int id;
+	
+	@Column(name = "firstName")
 	private String firstName;
+	
+	@Column(name = "lastName")
 	private String lastName;
+	
+	@Column(name = "phoneNumber")
 	private String phoneNumber;
+	
+	@Column(name = "adress")
 	private String adress;
+	
+	@Column(name = "email")
 	private String email;
 
 	public Directory() {
@@ -73,8 +97,10 @@ public class Directory {
 
 	@Override
 	public String toString() {
-		return "Phonebook [id=" + id + ", firstName=" + firstName + ", lastName=" + lastName + ", phoneNumber="
+		return "Directory [id=" + id + ", firstName=" + firstName + ", lastName=" + lastName + ", phoneNumber="
 				+ phoneNumber + ", adress=" + adress + ", email=" + email + "]";
 	}
+
+	
 
 }

@@ -6,8 +6,8 @@ import com.example.model.Directory;
 
 public interface DirectoryService {
 	
-	public List<Directory> getNumbers();
+	public List<Directory> getContactList();
 
-	public int saveNumbers(Directory number);
+	public int saveContact(Directory contact);
 
 }

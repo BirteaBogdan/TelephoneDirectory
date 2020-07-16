@@ -11,7 +11,7 @@
          <table class="table table-bordered table-dark">
             <thead>
                <tr>
-                  <th>Id</th>
+                  <th>#</th>
                   <th>Last Name</th>
                   <th>First Name</th>
                   <th>Phone Number</th>
@@ -21,13 +21,13 @@
                </tr>
             </thead>
             <tbody>
-               <tr th:each="number : ${numberList}">
-                  <td th:text="${number.id}"/>
-                  <td th:text="${number.lastName}"/>
-                  <td th:text="${number.firstName}"/>
-                  <td th:text="${number.phoneNumber}"/>
-                  <td th:text="${number.adress}"/>
-                  <td th:text="${number.email}"/>
+               <tr th:each="contact : ${contactList}">
+                  <td th:text="${contact.id}"/>
+                  <td th:text="${contact.lastName}"/>
+                  <td th:text="${contact.firstName}"/>
+                  <td th:text="${contact.phoneNumber}"/>
+                  <td th:text="${contact.adress}"/>
+                  <td th:text="${contact.email}"/>
                   <td>
                      <button type="button" class="btn btn-primary">Edit</button>
                      <button type="button" class="btn btn-danger">Delete</button>
