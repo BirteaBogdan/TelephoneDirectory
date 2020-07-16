@@ -13,6 +13,7 @@ public class DirectoryServiceImpl implements DirectoryService {
 
 	@Override
 	public List<Directory> getNumbers() {
+		
 		List<Directory> contacts = new ArrayList<Directory>();
 		contacts.add(new Directory(1, "Andrei", "Popescu", "0711111111", "Str.Cocorului, Nr.23","popescu.andrei@yahoo.com"));
 		contacts.add(new Directory(2, "Andreea", "Georgescu", "0755555555", "Str.Dorului, Nr.33","georgescu.andreea@yahoo.com"));
