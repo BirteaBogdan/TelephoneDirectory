@@ -9,3 +9,12 @@ create table t_contacts
 	email varchar(50),
 	primary key(id)
 );
+
+DROP TABLE t_groups IF EXISTS;
+create table t_groups
+(
+	id integer auto_increment,
+	group_name varchar(50),
+	number_of_contacts integer,
+	primary key(id)
+);
