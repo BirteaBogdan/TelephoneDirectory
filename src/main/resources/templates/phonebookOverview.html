@@ -29,8 +29,13 @@
                   <td th:text="${contact.adress}"/>
                   <td th:text="${contact.email}"/>
                   <td>
+                  
                      <button type="button" class="btn btn-primary">Edit</button>
-                     <button type="button" class="btn btn-danger">Delete</button>
+                  	<form th:action = "@{/deleteContact}" th:object = ${contact} method = "post">
+                  		<div class="d-none"><input name = "directoryId" th:value = "*{id}"></div>
+                  		<button type="submit" class="btn btn-danger">Delete</button>
+                  	</form>
+                   
                   </td>
                </tr>
             </tbody>

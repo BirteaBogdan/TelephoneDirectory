@@ -29,4 +29,11 @@ public class DirectoryServiceImpl implements DirectoryService {
 		return x;
 	}
 
+	@Override
+	public void deleteById(int directoryId) {
+		
+		directoryRepository.deleteById(directoryId);
+		
+	}
+
 }

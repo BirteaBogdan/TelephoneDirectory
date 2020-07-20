@@ -10,4 +10,6 @@ public interface DirectoryService {
 
 	public int saveContact(Directory contact);
 
+	public void deleteById(int directoryId);
+
 }

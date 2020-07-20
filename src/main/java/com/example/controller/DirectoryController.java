@@ -8,6 +8,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.example.model.Directory;
@@ -31,6 +32,17 @@ public class DirectoryController {
 		mav.setViewName("phonebookOverview");
 		return mav;
 
+	}
+	
+	@RequestMapping(value = "/deleteContact", method = RequestMethod.POST)
+	public ModelAndView deleteContact(@RequestParam("directoryId") int directoryId) {
+		ModelAndView mav = new ModelAndView();
+		
+		directoryService.deleteById(directoryId);
+		
+		mav.setViewName("redirect:/phonebookOverview");
+		return mav;
+		
 	}
 
 	@RequestMapping(value = "/addContact", method = RequestMethod.GET)
