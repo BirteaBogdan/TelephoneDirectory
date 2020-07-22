@@ -23,10 +23,10 @@ public class DirectoryServiceImpl implements DirectoryService {
 	}
 
 	@Override
-	public int saveContact(Directory contact) {
-		System.out.println("Hello from saveNumbers");
-		int x = 5;
-		return x;
+	public void saveContact(Directory contact) {
+		
+		directoryRepository.save(contact);
+		
 	}
 
 	@Override

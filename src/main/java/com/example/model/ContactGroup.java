@@ -9,7 +9,7 @@ import javax.persistence.Table;
 
 
 @Entity
-@Table(name = "t_groups")
+@Table(name = "t_group")
 
 public class ContactGroup {
 

@@ -60,8 +60,9 @@ public class DirectoryController {
 	@RequestMapping(value="/submitContact", method=RequestMethod.POST)
 	public ModelAndView submitContact(@ModelAttribute("contact") Directory contact) {
 		ModelAndView mav = new ModelAndView();
-		int result = directoryService.saveContact(contact);
-		System.out.println("Result: " + result);
+		
+		directoryService.saveContact(contact);
+		
 		System.out.println(contact);
 		
 		mav.setViewName("redirect:/phonebookOverview");

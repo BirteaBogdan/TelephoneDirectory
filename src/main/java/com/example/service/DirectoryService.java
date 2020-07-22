@@ -8,7 +8,7 @@ public interface DirectoryService {
 	
 	public List<Directory> getContactList();
 
-	public int saveContact(Directory contact);
+	public void saveContact(Directory contact);
 
 	public void deleteById(int directoryId);
 

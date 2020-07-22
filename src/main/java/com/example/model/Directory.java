@@ -9,7 +9,7 @@ import javax.persistence.Table;
 
 
 @Entity
-@Table(name = "t_contacts")
+@Table(name = "t_contact")
 	
 public class Directory {
 
