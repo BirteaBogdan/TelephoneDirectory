@@ -13,6 +13,8 @@
 	</div>
 	<form action="" th:action="@{/submitContact}" th:object=${contact} method="post" modelAttribute="contact">
 
+	<div class="d-none"><input th:field = "*{id}"></div>
+
 	<div class="container">
 		<div class="col">
 			<div class="row">
@@ -32,22 +34,23 @@
 			<div>
 				<div>
 					<label for="number"><b>Number</b> :</label>
-					<input type="text" class="form-control" id="number" placeholder="ex. 0765432109" th:fiel="*{phoneNumber}">
+					<input type="text" class="form-control" id="number" placeholder="ex. 0765432109" th:field="*{phoneNumber}">
 				</div>
 			
 			</div>
 			<div>
 				<label for="adress"><b>Adress</b> :</label>
-				<input type="text" class="form-control" id="adress" placeholder="ex. Bv. Brasov" th:filed="*{adress}">
+				<input type="text" class="form-control" id="adress" placeholder="ex. Bv. Brasov" th:field="*{adress}">
 			</div>
 			<div>
 				<label for="email"><b>E-mail</b> :</label>
 				<input type="text" class="form-control" id="email" placeholder="ex. email@email.email" th:field="*{email}">
 			</div>
 			
+			
 		</div>
 		<div>
-			<button class="button" type="submit"><span>Create contact  </span></button>
+			<button class="button" type="submit"><span>Save contact  </span></button>
 		</div>
 	</div>
 	</form>

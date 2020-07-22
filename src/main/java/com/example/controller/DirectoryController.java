@@ -12,7 +12,9 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
+import com.example.model.ContactGroup;
 import com.example.model.Directory;
+import com.example.service.ContactGroupService;
 import com.example.service.DirectoryService;
 
 
@@ -21,6 +23,7 @@ public class DirectoryController {
 
 	@Autowired
 	public DirectoryService directoryService;
+
 
 	@RequestMapping(value = "/phonebookOverview", method = RequestMethod.GET)
 	public ModelAndView phonebookOverviewRequestMapping(Model model) {
@@ -36,6 +39,9 @@ public class DirectoryController {
 
 	}
 	
+	
+
+	
 	@RequestMapping(value = "/deleteContact", method = RequestMethod.POST)
 	public ModelAndView deleteContact(@RequestParam("directoryId") int directoryId) {
 		ModelAndView mav = new ModelAndView();
@@ -47,7 +53,7 @@ public class DirectoryController {
 		
 	}
 
-	@RequestMapping(value = "/addContact", method = RequestMethod.GET)
+	@RequestMapping(value = "/addContact", method = {RequestMethod.GET,RequestMethod.POST})
 	public ModelAndView addContactRequestMapping(Model model) {
 		ModelAndView mav = new ModelAndView();
 		
@@ -74,14 +80,15 @@ public class DirectoryController {
 
 	
 	@RequestMapping(value = "/updateContact", method=RequestMethod.POST)
-	public ModelAndView updateContact(@RequestParam("directoryId") int directoryId) {
+	public ModelAndView updateContact(@RequestParam("directoryId") int directoryId, Model model) {
 		ModelAndView mav = new ModelAndView();
 		
 		Optional<Directory> contact = directoryService.getDirectoryById(directoryId);
 		
 		System.out.println(contact);
+		model.addAttribute("contact", contact);
 		
-		mav.setViewName("redirect:/addContact");
+		mav.setViewName("addContact");
 		return mav;
 	}
 }
