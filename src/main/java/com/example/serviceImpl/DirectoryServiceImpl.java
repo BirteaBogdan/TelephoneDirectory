@@ -1,9 +1,11 @@
 package com.example.serviceImpl;
 
 import java.util.List;
+import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+
 
 import com.example.model.Directory;
 import com.example.repository.DirectoryRepository;
@@ -36,4 +38,14 @@ public class DirectoryServiceImpl implements DirectoryService {
 		
 	}
 
+	@Override
+	public void editContact(Directory contact) {
+		
+		directoryRepository.save(contact).getId();
+	}
+	
+	@Override
+	public Optional<Directory> getDirectoryById(int directoryId) {
+		return directoryRepository.findById(directoryId);
+	}
 }

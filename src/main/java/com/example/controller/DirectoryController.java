@@ -1,6 +1,7 @@
 package com.example.controller;
 
 import java.util.List;
+import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -13,6 +14,7 @@ import org.springframework.web.servlet.ModelAndView;
 
 import com.example.model.Directory;
 import com.example.service.DirectoryService;
+
 
 @Controller
 public class DirectoryController {
@@ -66,6 +68,20 @@ public class DirectoryController {
 		System.out.println(contact);
 		
 		mav.setViewName("redirect:/phonebookOverview");
+		return mav;
+	}
+	
+
+	
+	@RequestMapping(value = "/updateContact", method=RequestMethod.POST)
+	public ModelAndView updateContact(@RequestParam("directoryId") int directoryId) {
+		ModelAndView mav = new ModelAndView();
+		
+		Optional<Directory> contact = directoryService.getDirectoryById(directoryId);
+		
+		System.out.println(contact);
+		
+		mav.setViewName("redirect:/addContact");
 		return mav;
 	}
 }
