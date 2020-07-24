@@ -1,0 +1,51 @@
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+   <head th:replace="fragment/pageheader :: head">
+   <body class = "bg">
+      <div class="navibar1">
+         <b>Phone Directory</b>
+      </div>
+      <div class="navibar2">
+         <b>Phone Directory Overview</b>
+      </div>
+      <div class = "container">
+
+         <table class="table table-bordered table-dark">
+            <thead>
+               <tr>
+                  <th>#</th>
+                  <th>Group Name</th>
+                  <th>Total Contacts</th>
+				<th>Action</th>
+					
+               </tr>
+            </thead>
+            <tbody>
+               <tr th:each="contactGroup : ${contactGroupList}">
+                  <td th:text="${contactGroup.id}"/>
+                  <td th:text="${contactGroup.groupname}"/>
+				<td th:text="${contactGroup.contactList.size()}"/>
+     				
+    
+                  <td>
+                  	<form th:action = "@{/updateContactGroup}" th:object = ${contactGroup} method = "post">
+						<div class="d-none"><input name = "contactGroupId" th:value = "*{id}"></div>
+                    	 <button type="submit" class="btn btn-primary">Edit</button>
+					</form>
+                  	<form th:action = "@{/deleteContactGroup}" th:object = ${contactGroup} method = "post">
+                  		<div class="d-none"><input name = "contactGroupId" th:value = "*{id}"></div>
+                  		<button type="submit" class="btn btn-danger">Delete</button>
+                  	</form>
+                   
+                  </td>
+               </tr>
+		
+            </tbody>
+         </table>
+      </div>
+		<form th:action = "@{/addContactGroup}">
+                  		
+                  		<button class="button" type="submit"><span>Create contact Group</span></button>
+        </form>
+   </body>
+   <div th:replace="fragment/pagefooter :: pagefooter"></div>
+</html>
